@@ -17,10 +17,10 @@ app.use(express.static("public"));
 
 
 // Mongoose connection
-// mongoose.connect("mongodb://localhost/budget", {
-//   useNewUrlParser: true,
-//   useFindAndModify: false
-// });
+mongoose.connect("mongodb://localhost/budget", {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
 
 //heroku - atlas connection
 mongoose.connect(
