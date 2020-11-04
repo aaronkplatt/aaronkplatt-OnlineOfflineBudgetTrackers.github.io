@@ -1,5 +1,7 @@
 # Unit 18 PWA Homework: Online/Offline Budget Trackers
 
+Create another file in the index.html to get indexed db to work. You are going to need a function called sved records then indexed db.
+
 Heroku deployed: https://git.heroku.com/secret-mesa-51518.git
 
 Add functionality to our existing Budget Tracker application to allow for offline access and functionality.

@@ -136,6 +136,7 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
+    //look at comment 6 lines down
     saveRecord(transaction);
 
     // clear form
@@ -143,6 +144,10 @@ function sendTransaction(isAdding) {
     amountEl.value = "";
   });
 }
+//NEED TO MAKE A SAVED RECORD FUNCTION BECAUSE THERE ISNT look at nosql activity 17 indexed db 26 nosql unit 17
+//LOOK AT 25
+// we want to take the db to a unerversal variable
+// You are going to take everything in indexedDB and send it into BULK
 
 document.querySelector("#add-btn").onclick = function() {
   sendTransaction(true);

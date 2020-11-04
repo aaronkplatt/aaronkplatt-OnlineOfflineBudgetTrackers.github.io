@@ -25,7 +25,6 @@ self.addEventListener("install", function(evt){
             return cache.addAll(FILES_TO_CACHE);
         })
     );
-
     self.skipWaiting();
 });
 
@@ -43,14 +42,14 @@ self.addEventListener("activate", function(evt){
             );
         })
     );
-
     self.clients.claim();
 });
 
 //FETCH
 self.addEventListener("fetch", function(evt){
     const {url} = evt.request;
-    if (url.includes("/all") || url.includes("/find")) {
+    //The application is looking for api calls not find/all like in the note taker assignment
+    if (url.includes("/api/")) {
         evt.respondWith(
             caches.open(DATA_CACHE_NAME).then(cache => {
                 return fetch(evt.request)
@@ -65,13 +64,6 @@ self.addEventListener("fetch", function(evt){
                 });
             }).catch(error => console.log(error))
         );
-    } else {
-        evt.respondWith(
-            caches.open(CACHE_NAME).then(cache => {
-                return cache.match(evt.request).then(response => {
-                    return response || fetch(evt.request);
-                });
-            })
-        );
-    }
+    };
+    //the else fucntion that usually goes here isn't necessary
 });
