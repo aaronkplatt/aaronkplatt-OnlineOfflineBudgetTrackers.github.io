@@ -24,7 +24,7 @@ mongoose.connect("mongodb://localhost/budget", {
   useFindAndModify: false
 });
 
-//heroku - atlas connection uncomment for deployed
+//Heroku - MONGODB_URI
 // mongoose.connect(
 //   process.env.MONGODB_URI || 'mongodb://localhost/budget',
 //   {
