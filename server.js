@@ -15,6 +15,8 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+// routes
+app.use(require("./routes/api.js"));
 
 // Mongoose connection
 mongoose.connect("mongodb://localhost/budget", {
@@ -22,19 +24,17 @@ mongoose.connect("mongodb://localhost/budget", {
   useFindAndModify: false
 });
 
-//heroku - atlas connection
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/budget',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  }
-);
+//heroku - atlas connection uncomment for deployed
+// mongoose.connect(
+//   process.env.MONGODB_URI || 'mongodb://localhost/budget',
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false
+//   }
+// );
 
-// routes
-app.use(require("./routes/api.js"));
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
