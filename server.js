@@ -19,21 +19,21 @@ app.use(express.static("public"));
 app.use(require("./routes/api.js"));
 
 // Mongoose connection
-mongoose.connect("mongodb://localhost/budget", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+// mongoose.connect("mongodb://localhost/budget", {
+//   useNewUrlParser: true,
+//   useFindAndModify: false
+// });
 
 //Heroku - MONGODB_URI
-// mongoose.connect(
-//   process.env.MONGODB_URI || 'mongodb://localhost/budget',
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-//     useFindAndModify: false
-//   }
-// );
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/budget',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
 
 
 app.listen(PORT, () => {
