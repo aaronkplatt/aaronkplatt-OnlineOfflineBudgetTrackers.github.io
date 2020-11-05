@@ -24,7 +24,7 @@ app.use(require("./routes/api.js"));
 //   useFindAndModify: false
 // });
 
-//Heroku - MONGODB_URI
+//Heroku - MONGODB_URI (Working!)
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/budget',
   {
